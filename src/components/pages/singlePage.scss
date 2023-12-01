@@ -9,6 +9,8 @@
     &__img {
         width: 293px;
         height: 450px;
+        object-fit: contain;
+        object-position: top;
     }
     &__name {
         font-weight: bold;

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
+import FindChar from "../findChar/FindChar";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 import decoration from "../../resources/img/vision.png";
@@ -26,6 +28,10 @@ const MainPage = () => {
 
   return (
     <>
+      <Helmet>
+        <meta name="descroption" content="Marvel information"/>
+        <title>Marvel information portal</title>
+      </Helmet>
       <DynamicCreating>
         <h2>Hello World</h2>
         <h2>Lorem ipsum</h2>
@@ -37,9 +43,14 @@ const MainPage = () => {
         <ErrorBoundary>
           <CharList onCharSelected={onCharSelected} />
         </ErrorBoundary>
+        <div className="char__right-box">
         <ErrorBoundary>
           <CharInfo charId={selectedChar} />
         </ErrorBoundary>
+        <ErrorBoundary>
+          <FindChar />
+        </ErrorBoundary>
+        </div>
       </div>
       <img className="bg-decoration" src={decoration} alt="vision" />
     </>
